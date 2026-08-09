@@ -1,0 +1,10 @@
+dist/
+dist-standalone/
+node_modules/
+release/
+docs/index.html
+docs/demo-report.json
+docs/demo-report.md
+docs/demo-diff.html
+docs/demo-diff.md
+examples/*.ics

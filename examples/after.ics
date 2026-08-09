@@ -1,0 +1,89 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:-//RhythmLint//Repaired synthetic week//EN
+BEGIN:VEVENT
+UID:daily-standup@example.test
+DTSTART:20260803T160000Z
+DTEND:20260803T162000Z
+RRULE:FREQ=DAILY;COUNT=5
+SUMMARY:Daily Standup
+ATTENDEE:mailto:team@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-focus@example.test
+DTSTART:20260803T163000Z
+DTEND:20260803T180000Z
+SUMMARY:Deep Work
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-collaboration@example.test
+DTSTART:20260803T200000Z
+DTEND:20260803T213000Z
+SUMMARY:Product and Roadmap Review
+ATTENDEE:mailto:product@example.test
+ATTENDEE:mailto:roadmap@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-focus@example.test
+DTSTART:20260804T163000Z
+DTEND:20260804T180000Z
+SUMMARY:Focus Block
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-collaboration@example.test
+DTSTART:20260804T200000Z
+DTEND:20260804T213000Z
+SUMMARY:Planning and Partner Call
+ATTENDEE:mailto:planning@example.test
+ATTENDEE:mailto:partner@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-1-1@example.test
+DTSTART:20260804T220000Z
+DTEND:20260804T223000Z
+SUMMARY:1:1
+ATTENDEE:mailto:manager@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-focus@example.test
+DTSTART:20260805T163000Z
+DTEND:20260805T180000Z
+SUMMARY:Deep Work
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-reviews@example.test
+DTSTART:20260805T200000Z
+DTEND:20260805T213000Z
+SUMMARY:Spec and Portfolio Review
+ATTENDEE:mailto:spec@example.test
+ATTENDEE:mailto:portfolio@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-focus@example.test
+DTSTART:20260806T163000Z
+DTEND:20260806T180000Z
+SUMMARY:Focus Block
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-collaboration@example.test
+DTSTART:20260806T200000Z
+DTEND:20260806T213000Z
+SUMMARY:Architecture and Launch Review
+ATTENDEE:mailto:architecture@example.test
+ATTENDEE:mailto:launch@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-focus@example.test
+DTSTART:20260807T163000Z
+DTEND:20260807T180000Z
+SUMMARY:Deep Work
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-review@example.test
+DTSTART:20260807T200000Z
+DTEND:20260807T210000Z
+SUMMARY:Metrics Review
+ATTENDEE:mailto:metrics@example.test
+END:VEVENT
+END:VCALENDAR

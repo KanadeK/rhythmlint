@@ -1,0 +1,44 @@
+{
+  "$schema": "../rhythmlint.schema.json",
+  "version": 1,
+  "timezone": "America/Los_Angeles",
+  "workweek": {
+    "days": [1, 2, 3, 4, 5],
+    "start": "09:00",
+    "end": "17:30",
+    "lunch": {
+      "earliest": "11:30",
+      "latest": "14:00",
+      "minimumMinutes": 30
+    }
+  },
+  "policy": {
+    "overlap": "error",
+    "minimumTransitionMinutes": 10,
+    "dailyMeetingBudgetMinutes": 210,
+    "weeklyMeetingBudgetMinutes": 780,
+    "maximumConsecutiveMeetingMinutes": 120,
+    "minimumFocusBlockMinutes": 90,
+    "minimumFocusBlocksPerWeek": 3,
+    "maximumFragmentMinutesPerDay": 60,
+    "outsideWorkHours": "warning"
+  },
+  "matching": {
+    "ignoreTitlePatterns": ["^OOO$", "vacation", "holiday"],
+    "focusTitlePatterns": ["deep[ -]?work", "focus(?: time| block)?"],
+    "meetingTitlePatterns": [
+      "stand[ -]?up",
+      "sync",
+      "review",
+      "retro",
+      "planning",
+      "1[: -]?1",
+      "call"
+    ],
+    "countAppointmentsAsMeetings": false
+  },
+  "privacy": {
+    "redactTitles": false,
+    "redactLocations": false
+  }
+}

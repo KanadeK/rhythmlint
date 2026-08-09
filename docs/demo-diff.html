@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:"><title>RhythmLint calendar diff</title><style>
+    :root{color-scheme:light dark;--ink:#17202a;--muted:#637083;--paper:#f4f1e8;--panel:#fffdf8;--line:#d8d1c2;--accent:#096b67;--accent2:#e0633b;--error:#b42318;--warning:#a15c00;--info:#2563a6;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#e9e2d3 0,#f7f4ed 48%,#dfece8 100%);color:var(--ink);min-height:100vh}.wrap{max-width:1120px;margin:auto;padding:48px 24px 72px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:var(--accent);font-size:.78rem}h1{font-family:Georgia,serif;font-size:clamp(2.4rem,7vw,5.5rem);line-height:.9;margin:.25rem 0 1rem;letter-spacing:-.055em;max-width:850px}.lead{font-size:1.12rem;max-width:760px;color:var(--muted);line-height:1.6}.scoreline{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}.score{font:800 2rem/1 Georgia,serif;background:var(--ink);color:var(--paper);padding:16px 18px;border-radius:4px}.counts{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:#fff9;padding:12px 16px;border-radius:4px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:var(--panel);border:1px solid var(--line);padding:18px;min-height:130px;display:flex;flex-direction:column;box-shadow:3px 3px 0 #c9c1b2}.metric span{text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;font-weight:800;color:var(--muted)}.metric strong{font:700 2.1rem Georgia,serif;margin:auto 0 2px}.metric small{color:var(--muted)}section{margin-top:44px}h2{font:700 1.65rem Georgia,serif;border-bottom:2px solid var(--ink);padding-bottom:8px}.table-wrap{overflow:auto;background:var(--panel);border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:720px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}th{font-size:.73rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}td.num{text-align:right;font-variant-numeric:tabular-nums}.bar{height:8px;background:#e3ded4;width:120px;display:inline-block;vertical-align:middle;margin-left:8px}.bar i{display:block;height:100%;background:var(--accent);max-width:100%}.findings{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.finding{background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--info);padding:18px}.finding.error{border-top-color:var(--error)}.finding.warning{border-top-color:var(--warning)}.finding h3{font:700 1.25rem Georgia,serif;margin:.7rem 0}.finding p{line-height:1.55}.finding-head{display:flex;align-items:center;gap:8px}.finding-head code{font-size:.7rem;color:var(--muted);margin-left:auto}.pill,.severity{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;font-weight:900}.pill{background:var(--ink);color:var(--paper);padding:4px 6px}.severity{color:var(--muted)}.repair{border-left:3px solid var(--accent);padding-left:10px}.finding dl{font-size:.8rem;color:var(--muted)}.finding dl div{display:grid;grid-template-columns:110px 1fr}.finding dt{font-weight:800}.finding dd{margin:0;overflow-wrap:anywhere}.empty{padding:28px;background:var(--panel);border:1px dashed var(--line)}.diag{background:var(--panel);border:1px solid var(--line);padding:12px 16px;margin:8px 0}.footer{margin-top:54px;color:var(--muted);font-size:.82rem}.delta.good{color:var(--accent)}.delta.bad{color:var(--error)}@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}.findings{grid-template-columns:1fr}}@media(max-width:480px){.wrap{padding:32px 16px}.grid{grid-template-columns:1fr}.counts{width:100%}}
+    @media(prefers-color-scheme:dark){:root{--ink:#edf4f2;--muted:#aab7b5;--paper:#17211f;--panel:#1e2b28;--line:#40514d;--accent:#71d4c9;--accent2:#ff9d7a;--error:#ff8d82;--warning:#f7bb63;--info:#84b9ff}body{background:linear-gradient(145deg,#17211f,#101817 55%,#1e2d2b)}.score{background:#edf4f2;color:#17211f}.counts{background:#1e2b28}.bar{background:#40514d}.pill{background:#edf4f2;color:#17211f}}
+    @media print{body{background:white}.wrap{max-width:none;padding:0}.metric,.finding{box-shadow:none;break-inside:avoid}.footer{display:none}}
+  </style></head>
+<body><main class="wrap"><header><div class="eyebrow">Calendar diff · same policy</div><h1>Did the week get better?</h1><p class="lead">Compared the same 2026-08-03–2026-08-10 window before and after schedule changes.</p></header><div class="grid"><article class="metric"><span>Score</span><strong>+100</strong><small>0 → 100</small></article><article class="metric"><span>Meeting load</span><strong>-14h 40m</strong><small>after minus before</small></article><article class="metric"><span>Focus capacity</span><strong>23h 50m</strong><small>after minus before</small></article><article class="metric"><span>Fragment tax</span><strong>-9h 10m</strong><small>after minus before</small></article></div><section><h2>Resolved findings</h2><div class="findings"><article class="finding error">
+    <div class="finding-head"><span class="pill">RL001</span><span class="severity">error</span><code>7fc9bde228e59bff</code></div>
+    <h3>Active events overlap</h3>
+    <p>Daily Standup and Product Review overlap for 10 minutes.</p>
+    <p class="repair"><strong>Repair</strong> Move, shorten, decline, or mark one event transparent; do not hide the conflict by changing the lint threshold.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>minutes</dt><dd>10</dd></div><div><dt>window</dt><dd>2026-08-03T16:20:00Z / 2026-08-03T16:30:00Z</dd></div></dl>
+  </article><article class="finding error">
+    <div class="finding-head"><span class="pill">RL001</span><span class="severity">error</span><code>cdb5b05bc53bf9a0</code></div>
+    <h3>Active events overlap</h3>
+    <p>Focus Block and Architecture Review overlap for 30 minutes.</p>
+    <p class="repair"><strong>Repair</strong> Move, shorten, decline, or mark one event transparent; do not hide the conflict by changing the lint threshold.</p>
+    <dl><div><dt>date</dt><dd>2026-08-06</dd></div><div><dt>minutes</dt><dd>30</dd></div><div><dt>window</dt><dd>2026-08-06T17:30:00Z / 2026-08-06T18:00:00Z</dd></div></dl>
+  </article><article class="finding error">
+    <div class="finding-head"><span class="pill">RL001</span><span class="severity">error</span><code>e671a2dcb6d3210d</code></div>
+    <h3>Active events overlap</h3>
+    <p>Regional Call and Daily Standup overlap for 15 minutes.</p>
+    <p class="repair"><strong>Repair</strong> Move, shorten, decline, or mark one event transparent; do not hide the conflict by changing the lint threshold.</p>
+    <dl><div><dt>date</dt><dd>2026-08-05</dd></div><div><dt>minutes</dt><dd>15</dd></div><div><dt>window</dt><dd>2026-08-05T16:00:00Z / 2026-08-05T16:15:00Z</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL002</span><span class="severity">warning</span><code>067d95e29a2d99d8</code></div>
+    <h3>Transition buffer is too short</h3>
+    <p>Project Sync leaves 0 minutes before Partner Call; policy requires 10.</p>
+    <p class="repair"><strong>Repair</strong> Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.</p>
+    <dl><div><dt>date</dt><dd>2026-08-04</dd></div><div><dt>gapMinutes</dt><dd>0</dd></div><div><dt>limitMinutes</dt><dd>10</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL002</span><span class="severity">warning</span><code>0d7d7f576757910a</code></div>
+    <h3>Transition buffer is too short</h3>
+    <p>Product Review leaves 5 minutes before Roadmap Sync; policy requires 10.</p>
+    <p class="repair"><strong>Repair</strong> Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>gapMinutes</dt><dd>5</dd></div><div><dt>limitMinutes</dt><dd>10</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL002</span><span class="severity">warning</span><code>2d9a4356fc301843</code></div>
+    <h3>Transition buffer is too short</h3>
+    <p>Roadmap Sync leaves 5 minutes before Customer Call; policy requires 10.</p>
+    <p class="repair"><strong>Repair</strong> Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>gapMinutes</dt><dd>5</dd></div><div><dt>limitMinutes</dt><dd>10</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL002</span><span class="severity">warning</span><code>334a2caac04afc93</code></div>
+    <h3>Transition buffer is too short</h3>
+    <p>Customer Call leaves 0 minutes before Hiring Review; policy requires 10.</p>
+    <p class="repair"><strong>Repair</strong> Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>gapMinutes</dt><dd>0</dd></div><div><dt>limitMinutes</dt><dd>10</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL002</span><span class="severity">warning</span><code>d29ab07986616dbf</code></div>
+    <h3>Transition buffer is too short</h3>
+    <p>Daily Standup leaves 0 minutes before Focus Block; policy requires 10.</p>
+    <p class="repair"><strong>Repair</strong> Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.</p>
+    <dl><div><dt>date</dt><dd>2026-08-06</dd></div><div><dt>gapMinutes</dt><dd>0</dd></div><div><dt>limitMinutes</dt><dd>10</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL003</span><span class="severity">warning</span><code>04362202af203b12</code></div>
+    <h3>Daily meeting budget exceeded</h3>
+    <p>290 meeting minutes exceed the 210-minute daily budget on 2026-08-03.</p>
+    <p class="repair"><strong>Repair</strong> Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>minutes</dt><dd>290</dd></div><div><dt>limitMinutes</dt><dd>210</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL003</span><span class="severity">warning</span><code>0ddf85fa081463da</code></div>
+    <h3>Daily meeting budget exceeded</h3>
+    <p>390 meeting minutes exceed the 210-minute daily budget on 2026-08-04.</p>
+    <p class="repair"><strong>Repair</strong> Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-04</dd></div><div><dt>minutes</dt><dd>390</dd></div><div><dt>limitMinutes</dt><dd>210</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL003</span><span class="severity">warning</span><code>9448fb444f436221</code></div>
+    <h3>Daily meeting budget exceeded</h3>
+    <p>270 meeting minutes exceed the 210-minute daily budget on 2026-08-05.</p>
+    <p class="repair"><strong>Repair</strong> Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-05</dd></div><div><dt>minutes</dt><dd>270</dd></div><div><dt>limitMinutes</dt><dd>210</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL003</span><span class="severity">warning</span><code>a1bfd8c7bbd63aa4</code></div>
+    <h3>Daily meeting budget exceeded</h3>
+    <p>270 meeting minutes exceed the 210-minute daily budget on 2026-08-07.</p>
+    <p class="repair"><strong>Repair</strong> Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-07</dd></div><div><dt>minutes</dt><dd>270</dd></div><div><dt>limitMinutes</dt><dd>210</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL004</span><span class="severity">warning</span><code>7169647ee9dfb42c</code></div>
+    <h3>Weekly meeting budget exceeded</h3>
+    <p>1430 meeting minutes exceed the 780-minute budget for the 5-day audited portion of week 2026-08-03.</p>
+    <p class="repair"><strong>Repair</strong> Remove recurring meetings without decisions, shorten default durations, and cluster remaining meetings.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>minutes</dt><dd>1430</dd></div><div><dt>limitMinutes</dt><dd>780</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL005</span><span class="severity">warning</span><code>244dc66f1e2d3fd0</code></div>
+    <h3>Consecutive meeting run is too long</h3>
+    <p>5 meetings occupy 300 consecutive minutes on 2026-08-03; policy allows 120.</p>
+    <p class="repair"><strong>Repair</strong> Insert a real break or split the run so no consecutive meeting span exceeds 120 minutes.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>count</dt><dd>5</dd></div><div><dt>minutes</dt><dd>300</dd></div><div><dt>limitMinutes</dt><dd>120</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL005</span><span class="severity">warning</span><code>7209ab90321c0f16</code></div>
+    <h3>Consecutive meeting run is too long</h3>
+    <p>3 meetings occupy 180 consecutive minutes on 2026-08-04; policy allows 120.</p>
+    <p class="repair"><strong>Repair</strong> Insert a real break or split the run so no consecutive meeting span exceeds 120 minutes.</p>
+    <dl><div><dt>date</dt><dd>2026-08-04</dd></div><div><dt>count</dt><dd>3</dd></div><div><dt>minutes</dt><dd>180</dd></div><div><dt>limitMinutes</dt><dd>120</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL006</span><span class="severity">warning</span><code>cdcdbd67b0e003f5</code></div>
+    <h3>Not enough focus capacity</h3>
+    <p>Week 2026-08-03 has 1 protected focus blocks; 3 are required for its 5 audited workdays.</p>
+    <p class="repair"><strong>Repair</strong> Use the overlay command to reserve 2 additional block(s) of at least 90 minutes, then move meetings if free capacity is insufficient.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>count</dt><dd>1</dd></div><div><dt>requiredCount</dt><dd>3</dd></div><div><dt>minutes</dt><dd>540</dd></div><div><dt>limitMinutes</dt><dd>90</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL007</span><span class="severity">warning</span><code>2010e81aebda20a9</code></div>
+    <h3>Free time is fragmented</h3>
+    <p>150 free minutes are split into blocks shorter than 90 minutes on 2026-08-05.</p>
+    <p class="repair"><strong>Repair</strong> Batch or move meetings so short gaps combine into one usable focus window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-05</dd></div><div><dt>minutes</dt><dd>150</dd></div><div><dt>limitMinutes</dt><dd>60</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL007</span><span class="severity">warning</span><code>57f9d7b8ecc3286a</code></div>
+    <h3>Free time is fragmented</h3>
+    <p>150 free minutes are split into blocks shorter than 90 minutes on 2026-08-07.</p>
+    <p class="repair"><strong>Repair</strong> Batch or move meetings so short gaps combine into one usable focus window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-07</dd></div><div><dt>minutes</dt><dd>150</dd></div><div><dt>limitMinutes</dt><dd>60</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL007</span><span class="severity">warning</span><code>9e94a4ddc19eb028</code></div>
+    <h3>Free time is fragmented</h3>
+    <p>120 free minutes are split into blocks shorter than 90 minutes on 2026-08-04.</p>
+    <p class="repair"><strong>Repair</strong> Batch or move meetings so short gaps combine into one usable focus window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-04</dd></div><div><dt>minutes</dt><dd>120</dd></div><div><dt>limitMinutes</dt><dd>60</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL007</span><span class="severity">warning</span><code>ba4f5b5df12fb8a4</code></div>
+    <h3>Free time is fragmented</h3>
+    <p>150 free minutes are split into blocks shorter than 90 minutes on 2026-08-06.</p>
+    <p class="repair"><strong>Repair</strong> Batch or move meetings so short gaps combine into one usable focus window.</p>
+    <dl><div><dt>date</dt><dd>2026-08-06</dd></div><div><dt>minutes</dt><dd>150</dd></div><div><dt>limitMinutes</dt><dd>60</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL008</span><span class="severity">warning</span><code>2a24e1bb57c19a55</code></div>
+    <h3>Lunch window is squeezed</h3>
+    <p>The longest free interval between 11:30 and 14:00 is 20 minutes on 2026-08-04; policy requires 30.</p>
+    <p class="repair"><strong>Repair</strong> Reserve at least 30 uninterrupted minutes in the lunch window. The overlay command can hold an existing free interval; move events first when no interval fits.</p>
+    <dl><div><dt>date</dt><dd>2026-08-04</dd></div><div><dt>minutes</dt><dd>20</dd></div><div><dt>limitMinutes</dt><dd>30</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL008</span><span class="severity">warning</span><code>da15789b113f3cc2</code></div>
+    <h3>Lunch window is squeezed</h3>
+    <p>The longest free interval between 11:30 and 14:00 is 0 minutes on 2026-08-03; policy requires 30.</p>
+    <p class="repair"><strong>Repair</strong> Reserve at least 30 uninterrupted minutes in the lunch window. The overlay command can hold an existing free interval; move events first when no interval fits.</p>
+    <dl><div><dt>date</dt><dd>2026-08-03</dd></div><div><dt>minutes</dt><dd>0</dd></div><div><dt>limitMinutes</dt><dd>30</dd></div></dl>
+  </article><article class="finding warning">
+    <div class="finding-head"><span class="pill">RL009</span><span class="severity">warning</span><code>b2306dbdd0d944bc</code></div>
+    <h3>Event falls outside working hours</h3>
+    <p>Regional Call is not fully contained in the configured work window on 2026-08-05.</p>
+    <p class="repair"><strong>Repair</strong> Move the event into working hours, mark it transparent/ignored when appropriate, or deliberately adjust the workweek policy.</p>
+    <dl><div><dt>date</dt><dd>2026-08-05</dd></div><div><dt>window</dt><dd>2026-08-05T16:00:00Z / 2026-08-06T00:30:00Z</dd></div></dl>
+  </article></div></section><section><h2>Introduced findings</h2><div class="findings"><div class="empty">No new findings were introduced.</div></div></section><section><h2>Unchanged</h2><div class="empty">0 finding(s) remain unchanged.</div></section><footer class="footer">Generated locally by RhythmLint. No calendar data was uploaded. Review reports before sharing.</footer></main></body></html>

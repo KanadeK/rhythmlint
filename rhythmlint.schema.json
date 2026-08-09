@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/KanadeK/rhythmlint/main/rhythmlint.schema.json",
+  "title": "RhythmLint configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "const": 1 },
+    "timezone": { "type": "string", "minLength": 1 },
+    "workweek": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "days": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 0, "maximum": 6 }
+        },
+        "start": { "$ref": "#/$defs/clock" },
+        "end": { "$ref": "#/$defs/clock" },
+        "lunch": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "earliest": { "$ref": "#/$defs/clock" },
+            "latest": { "$ref": "#/$defs/clock" },
+            "minimumMinutes": { "type": "number", "exclusiveMinimum": 0 }
+          },
+          "required": ["earliest", "latest", "minimumMinutes"]
+        }
+      },
+      "required": ["days", "start", "end", "lunch"]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "overlap": { "$ref": "#/$defs/level" },
+        "minimumTransitionMinutes": { "$ref": "#/$defs/minutes" },
+        "dailyMeetingBudgetMinutes": { "$ref": "#/$defs/positiveMinutes" },
+        "weeklyMeetingBudgetMinutes": { "$ref": "#/$defs/positiveMinutes" },
+        "maximumConsecutiveMeetingMinutes": {
+          "$ref": "#/$defs/positiveMinutes"
+        },
+        "minimumFocusBlockMinutes": { "$ref": "#/$defs/positiveMinutes" },
+        "minimumFocusBlocksPerWeek": { "type": "number", "minimum": 0 },
+        "maximumFragmentMinutesPerDay": { "$ref": "#/$defs/minutes" },
+        "outsideWorkHours": { "$ref": "#/$defs/level" }
+      },
+      "required": [
+        "overlap",
+        "minimumTransitionMinutes",
+        "dailyMeetingBudgetMinutes",
+        "weeklyMeetingBudgetMinutes",
+        "maximumConsecutiveMeetingMinutes",
+        "minimumFocusBlockMinutes",
+        "minimumFocusBlocksPerWeek",
+        "maximumFragmentMinutesPerDay",
+        "outsideWorkHours"
+      ]
+    },
+    "matching": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ignoreTitlePatterns": { "$ref": "#/$defs/patterns" },
+        "focusTitlePatterns": { "$ref": "#/$defs/patterns" },
+        "meetingTitlePatterns": { "$ref": "#/$defs/patterns" },
+        "countAppointmentsAsMeetings": { "type": "boolean" }
+      },
+      "required": [
+        "ignoreTitlePatterns",
+        "focusTitlePatterns",
+        "meetingTitlePatterns",
+        "countAppointmentsAsMeetings"
+      ]
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "redactTitles": { "type": "boolean" },
+        "redactLocations": { "type": "boolean" }
+      },
+      "required": ["redactTitles", "redactLocations"]
+    }
+  },
+  "required": [
+    "version",
+    "timezone",
+    "workweek",
+    "policy",
+    "matching",
+    "privacy"
+  ],
+  "$defs": {
+    "clock": { "type": "string", "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$" },
+    "level": { "enum": ["error", "warning", "info", "off"] },
+    "minutes": { "type": "number", "minimum": 0 },
+    "positiveMinutes": { "type": "number", "exclusiveMinimum": 0 },
+    "patterns": { "type": "array", "items": { "type": "string" } }
+  }
+}

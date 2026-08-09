@@ -1,0 +1,1150 @@
+{
+  "schemaVersion": "rhythmlint.audit.v1",
+  "toolVersion": "0.1.0",
+  "window": {
+    "from": "2026-08-03",
+    "toExclusive": "2026-08-10",
+    "days": 7,
+    "timezone": "America/Los_Angeles"
+  },
+  "config": {
+    "$schema": "../rhythmlint.schema.json",
+    "version": 1,
+    "timezone": "America/Los_Angeles",
+    "workweek": {
+      "days": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "start": "09:00",
+      "end": "17:30",
+      "lunch": {
+        "earliest": "11:30",
+        "latest": "14:00",
+        "minimumMinutes": 30
+      }
+    },
+    "policy": {
+      "overlap": "error",
+      "minimumTransitionMinutes": 10,
+      "dailyMeetingBudgetMinutes": 210,
+      "weeklyMeetingBudgetMinutes": 780,
+      "maximumConsecutiveMeetingMinutes": 120,
+      "minimumFocusBlockMinutes": 90,
+      "minimumFocusBlocksPerWeek": 3,
+      "maximumFragmentMinutesPerDay": 60,
+      "outsideWorkHours": "warning"
+    },
+    "matching": {
+      "ignoreTitlePatterns": [
+        "^OOO$",
+        "vacation",
+        "holiday"
+      ],
+      "focusTitlePatterns": [
+        "deep[ -]?work",
+        "focus(?: time| block)?"
+      ],
+      "meetingTitlePatterns": [
+        "stand[ -]?up",
+        "sync",
+        "review",
+        "retro",
+        "planning",
+        "1[: -]?1",
+        "call"
+      ],
+      "countAppointmentsAsMeetings": false
+    },
+    "privacy": {
+      "redactTitles": false,
+      "redactLocations": false
+    }
+  },
+  "inputs": [
+    {
+      "source": "before.ics",
+      "sha256": "d84b1063a2149678f82934a0bb8d5b4cac684899a01434e0af5bb598dd9aba36"
+    }
+  ],
+  "diagnostics": [],
+  "metrics": {
+    "eventCount": 29,
+    "meetingCount": 27,
+    "recurringOccurrenceCount": 5,
+    "meetingMinutes": 1430,
+    "busyMinutes": 1580,
+    "availableFocusMinutes": 540,
+    "protectedFocusMinutes": 150,
+    "fragmentMinutes": 580,
+    "contextSwitches": 24,
+    "days": [
+      {
+        "date": "2026-08-03",
+        "workMinutes": 510,
+        "busyMinutes": 380,
+        "meetingMinutes": 290,
+        "protectedFocusMinutes": 90,
+        "availableFocusMinutes": 210,
+        "qualifyingFocusBlocks": 1,
+        "protectedFocusBlocks": 1,
+        "fragmentMinutes": 10,
+        "longestFocusBlockMinutes": 210,
+        "contextSwitches": 5
+      },
+      {
+        "date": "2026-08-04",
+        "workMinutes": 510,
+        "busyMinutes": 390,
+        "meetingMinutes": 390,
+        "protectedFocusMinutes": 0,
+        "availableFocusMinutes": 0,
+        "qualifyingFocusBlocks": 0,
+        "protectedFocusBlocks": 0,
+        "fragmentMinutes": 120,
+        "longestFocusBlockMinutes": 30,
+        "contextSwitches": 6
+      },
+      {
+        "date": "2026-08-05",
+        "workMinutes": 510,
+        "busyMinutes": 270,
+        "meetingMinutes": 270,
+        "protectedFocusMinutes": 0,
+        "availableFocusMinutes": 90,
+        "qualifyingFocusBlocks": 1,
+        "protectedFocusBlocks": 0,
+        "fragmentMinutes": 150,
+        "longestFocusBlockMinutes": 90,
+        "contextSwitches": 5
+      },
+      {
+        "date": "2026-08-06",
+        "workMinutes": 510,
+        "busyMinutes": 270,
+        "meetingMinutes": 210,
+        "protectedFocusMinutes": 60,
+        "availableFocusMinutes": 150,
+        "qualifyingFocusBlocks": 1,
+        "protectedFocusBlocks": 0,
+        "fragmentMinutes": 150,
+        "longestFocusBlockMinutes": 150,
+        "contextSwitches": 4
+      },
+      {
+        "date": "2026-08-07",
+        "workMinutes": 510,
+        "busyMinutes": 270,
+        "meetingMinutes": 270,
+        "protectedFocusMinutes": 0,
+        "availableFocusMinutes": 90,
+        "qualifyingFocusBlocks": 1,
+        "protectedFocusBlocks": 0,
+        "fragmentMinutes": 150,
+        "longestFocusBlockMinutes": 90,
+        "contextSwitches": 4
+      }
+    ],
+    "weeks": [
+      {
+        "weekStart": "2026-08-03",
+        "workdays": 5,
+        "meetingMinutes": 1430,
+        "qualifyingFocusBlocks": 4,
+        "protectedFocusBlocks": 1,
+        "availableFocusMinutes": 540
+      }
+    ]
+  },
+  "findings": [
+    {
+      "fingerprint": "7fc9bde228e59bff",
+      "ruleId": "RL001",
+      "severity": "error",
+      "title": "Active events overlap",
+      "message": "Daily Standup and Product Review overlap for 10 minutes.",
+      "repair": "Move, shorten, decline, or mark one event transparent; do not hide the conflict by changing the lint threshold.",
+      "eventIds": [
+        "26bfc8db50141dce9f06",
+        "5abd74b8730bd18d805d"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "minutes": 10,
+        "window": "2026-08-03T16:20:00Z / 2026-08-03T16:30:00Z",
+        "eventLabels": [
+          "Daily Standup",
+          "Product Review"
+        ]
+      }
+    },
+    {
+      "fingerprint": "cdb5b05bc53bf9a0",
+      "ruleId": "RL001",
+      "severity": "error",
+      "title": "Active events overlap",
+      "message": "Focus Block and Architecture Review overlap for 30 minutes.",
+      "repair": "Move, shorten, decline, or mark one event transparent; do not hide the conflict by changing the lint threshold.",
+      "eventIds": [
+        "177979828801ec688f63",
+        "6a131824cd670574c50c"
+      ],
+      "evidence": {
+        "date": "2026-08-06",
+        "minutes": 30,
+        "window": "2026-08-06T17:30:00Z / 2026-08-06T18:00:00Z",
+        "eventLabels": [
+          "Focus Block",
+          "Architecture Review"
+        ]
+      }
+    },
+    {
+      "fingerprint": "e671a2dcb6d3210d",
+      "ruleId": "RL001",
+      "severity": "error",
+      "title": "Active events overlap",
+      "message": "Regional Call and Daily Standup overlap for 15 minutes.",
+      "repair": "Move, shorten, decline, or mark one event transparent; do not hide the conflict by changing the lint threshold.",
+      "eventIds": [
+        "a3bdd43995cd98cab07d",
+        "c6dd9216de04173d85c3"
+      ],
+      "evidence": {
+        "date": "2026-08-05",
+        "minutes": 15,
+        "window": "2026-08-05T16:00:00Z / 2026-08-05T16:15:00Z",
+        "eventLabels": [
+          "Regional Call",
+          "Daily Standup"
+        ]
+      }
+    },
+    {
+      "fingerprint": "067d95e29a2d99d8",
+      "ruleId": "RL002",
+      "severity": "warning",
+      "title": "Transition buffer is too short",
+      "message": "Project Sync leaves 0 minutes before Partner Call; policy requires 10.",
+      "repair": "Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.",
+      "eventIds": [
+        "c19eec26acf26f9776c0",
+        "c2e2bfff6e36076fa7fe"
+      ],
+      "evidence": {
+        "date": "2026-08-04",
+        "gapMinutes": 0,
+        "limitMinutes": 10,
+        "eventLabels": [
+          "Project Sync",
+          "Partner Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "0d7d7f576757910a",
+      "ruleId": "RL002",
+      "severity": "warning",
+      "title": "Transition buffer is too short",
+      "message": "Product Review leaves 5 minutes before Roadmap Sync; policy requires 10.",
+      "repair": "Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.",
+      "eventIds": [
+        "26bfc8db50141dce9f06",
+        "d242c76b9b585c65fbe5"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "gapMinutes": 5,
+        "limitMinutes": 10,
+        "eventLabels": [
+          "Product Review",
+          "Roadmap Sync"
+        ]
+      }
+    },
+    {
+      "fingerprint": "2d9a4356fc301843",
+      "ruleId": "RL002",
+      "severity": "warning",
+      "title": "Transition buffer is too short",
+      "message": "Roadmap Sync leaves 5 minutes before Customer Call; policy requires 10.",
+      "repair": "Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.",
+      "eventIds": [
+        "63bbae02cc68d2c67e58",
+        "d242c76b9b585c65fbe5"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "gapMinutes": 5,
+        "limitMinutes": 10,
+        "eventLabels": [
+          "Roadmap Sync",
+          "Customer Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "334a2caac04afc93",
+      "ruleId": "RL002",
+      "severity": "warning",
+      "title": "Transition buffer is too short",
+      "message": "Customer Call leaves 0 minutes before Hiring Review; policy requires 10.",
+      "repair": "Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.",
+      "eventIds": [
+        "63bbae02cc68d2c67e58",
+        "df5e1eca39f057558618"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "gapMinutes": 0,
+        "limitMinutes": 10,
+        "eventLabels": [
+          "Customer Call",
+          "Hiring Review"
+        ]
+      }
+    },
+    {
+      "fingerprint": "d29ab07986616dbf",
+      "ruleId": "RL002",
+      "severity": "warning",
+      "title": "Transition buffer is too short",
+      "message": "Daily Standup leaves 0 minutes before Focus Block; policy requires 10.",
+      "repair": "Move or shorten one event to create at least 10 minutes for transition, preparation, or travel.",
+      "eventIds": [
+        "177979828801ec688f63",
+        "5d4f588d4e973485a5e3"
+      ],
+      "evidence": {
+        "date": "2026-08-06",
+        "gapMinutes": 0,
+        "limitMinutes": 10,
+        "eventLabels": [
+          "Daily Standup",
+          "Focus Block"
+        ]
+      }
+    },
+    {
+      "fingerprint": "04362202af203b12",
+      "ruleId": "RL003",
+      "severity": "warning",
+      "title": "Daily meeting budget exceeded",
+      "message": "290 meeting minutes exceed the 210-minute daily budget on 2026-08-03.",
+      "repair": "Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.",
+      "eventIds": [
+        "26bfc8db50141dce9f06",
+        "5abd74b8730bd18d805d",
+        "63bbae02cc68d2c67e58",
+        "d242c76b9b585c65fbe5",
+        "df5e1eca39f057558618"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "minutes": 290,
+        "limitMinutes": 210,
+        "eventLabels": [
+          "Daily Standup",
+          "Product Review",
+          "Roadmap Sync",
+          "Customer Call",
+          "Hiring Review"
+        ]
+      }
+    },
+    {
+      "fingerprint": "0ddf85fa081463da",
+      "ruleId": "RL003",
+      "severity": "warning",
+      "title": "Daily meeting budget exceeded",
+      "message": "390 meeting minutes exceed the 210-minute daily budget on 2026-08-04.",
+      "repair": "Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.",
+      "eventIds": [
+        "27aeab3e18476cbad51d",
+        "6687c46ae679f3a10ff7",
+        "67fcfcd2ba3eb3404442",
+        "6c17e3b292742412d4e9",
+        "c19eec26acf26f9776c0",
+        "c2e2bfff6e36076fa7fe",
+        "c91bfee617b3aa45cecf"
+      ],
+      "evidence": {
+        "date": "2026-08-04",
+        "minutes": 390,
+        "limitMinutes": 210,
+        "eventLabels": [
+          "Daily Standup",
+          "Design Review",
+          "Project Sync",
+          "Partner Call",
+          "Quarter Planning",
+          "1:1",
+          "Sprint Retro"
+        ]
+      }
+    },
+    {
+      "fingerprint": "9448fb444f436221",
+      "ruleId": "RL003",
+      "severity": "warning",
+      "title": "Daily meeting budget exceeded",
+      "message": "270 meeting minutes exceed the 210-minute daily budget on 2026-08-05.",
+      "repair": "Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.",
+      "eventIds": [
+        "190a8fe1159631eea5af",
+        "a3bdd43995cd98cab07d",
+        "ab83b3afae6837c80c79",
+        "c138e3cd45a58fba648d",
+        "c6dd9216de04173d85c3",
+        "e963a054778394465f7f"
+      ],
+      "evidence": {
+        "date": "2026-08-05",
+        "minutes": 270,
+        "limitMinutes": 210,
+        "eventLabels": [
+          "Regional Call",
+          "Daily Standup",
+          "Spec Review",
+          "Engineering Sync",
+          "Portfolio Review",
+          "Vendor Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "a1bfd8c7bbd63aa4",
+      "ruleId": "RL003",
+      "severity": "warning",
+      "title": "Daily meeting budget exceeded",
+      "message": "270 meeting minutes exceed the 210-minute daily budget on 2026-08-07.",
+      "repair": "Decline low-value meetings, shorten agendas, or batch movable meetings into a collaboration window.",
+      "eventIds": [
+        "0046ab50ed801d359b6d",
+        "7821b84650d946d98725",
+        "9495a6639709a9eac1f9",
+        "cb0dd8cd56e8fd962074",
+        "d3495dfc8257fff53e79"
+      ],
+      "evidence": {
+        "date": "2026-08-07",
+        "minutes": 270,
+        "limitMinutes": 210,
+        "eventLabels": [
+          "Daily Standup",
+          "Metrics Review",
+          "Operations Sync",
+          "Next Week Planning",
+          "Stakeholder Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "7169647ee9dfb42c",
+      "ruleId": "RL004",
+      "severity": "warning",
+      "title": "Weekly meeting budget exceeded",
+      "message": "1430 meeting minutes exceed the 780-minute budget for the 5-day audited portion of week 2026-08-03.",
+      "repair": "Remove recurring meetings without decisions, shorten default durations, and cluster remaining meetings.",
+      "eventIds": [],
+      "evidence": {
+        "date": "2026-08-03",
+        "minutes": 1430,
+        "limitMinutes": 780
+      }
+    },
+    {
+      "fingerprint": "244dc66f1e2d3fd0",
+      "ruleId": "RL005",
+      "severity": "warning",
+      "title": "Consecutive meeting run is too long",
+      "message": "5 meetings occupy 300 consecutive minutes on 2026-08-03; policy allows 120.",
+      "repair": "Insert a real break or split the run so no consecutive meeting span exceeds 120 minutes.",
+      "eventIds": [
+        "26bfc8db50141dce9f06",
+        "5abd74b8730bd18d805d",
+        "63bbae02cc68d2c67e58",
+        "d242c76b9b585c65fbe5",
+        "df5e1eca39f057558618"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "count": 5,
+        "minutes": 300,
+        "limitMinutes": 120,
+        "eventLabels": [
+          "Daily Standup",
+          "Product Review",
+          "Roadmap Sync",
+          "Customer Call",
+          "Hiring Review"
+        ]
+      }
+    },
+    {
+      "fingerprint": "7209ab90321c0f16",
+      "ruleId": "RL005",
+      "severity": "warning",
+      "title": "Consecutive meeting run is too long",
+      "message": "3 meetings occupy 180 consecutive minutes on 2026-08-04; policy allows 120.",
+      "repair": "Insert a real break or split the run so no consecutive meeting span exceeds 120 minutes.",
+      "eventIds": [
+        "6687c46ae679f3a10ff7",
+        "c19eec26acf26f9776c0",
+        "c2e2bfff6e36076fa7fe"
+      ],
+      "evidence": {
+        "date": "2026-08-04",
+        "count": 3,
+        "minutes": 180,
+        "limitMinutes": 120,
+        "eventLabels": [
+          "Design Review",
+          "Project Sync",
+          "Partner Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "cdcdbd67b0e003f5",
+      "ruleId": "RL006",
+      "severity": "warning",
+      "title": "Not enough focus capacity",
+      "message": "Week 2026-08-03 has 1 protected focus blocks; 3 are required for its 5 audited workdays.",
+      "repair": "Use the overlay command to reserve 2 additional block(s) of at least 90 minutes, then move meetings if free capacity is insufficient.",
+      "eventIds": [],
+      "evidence": {
+        "date": "2026-08-03",
+        "count": 1,
+        "requiredCount": 3,
+        "minutes": 540,
+        "limitMinutes": 90
+      }
+    },
+    {
+      "fingerprint": "2010e81aebda20a9",
+      "ruleId": "RL007",
+      "severity": "warning",
+      "title": "Free time is fragmented",
+      "message": "150 free minutes are split into blocks shorter than 90 minutes on 2026-08-05.",
+      "repair": "Batch or move meetings so short gaps combine into one usable focus window.",
+      "eventIds": [
+        "190a8fe1159631eea5af",
+        "a3bdd43995cd98cab07d",
+        "ab83b3afae6837c80c79",
+        "c138e3cd45a58fba648d",
+        "c6dd9216de04173d85c3",
+        "e963a054778394465f7f"
+      ],
+      "evidence": {
+        "date": "2026-08-05",
+        "minutes": 150,
+        "limitMinutes": 60,
+        "eventLabels": [
+          "Regional Call",
+          "Daily Standup",
+          "Spec Review",
+          "Engineering Sync",
+          "Portfolio Review",
+          "Vendor Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "57f9d7b8ecc3286a",
+      "ruleId": "RL007",
+      "severity": "warning",
+      "title": "Free time is fragmented",
+      "message": "150 free minutes are split into blocks shorter than 90 minutes on 2026-08-07.",
+      "repair": "Batch or move meetings so short gaps combine into one usable focus window.",
+      "eventIds": [
+        "0046ab50ed801d359b6d",
+        "7821b84650d946d98725",
+        "9495a6639709a9eac1f9",
+        "cb0dd8cd56e8fd962074",
+        "d3495dfc8257fff53e79"
+      ],
+      "evidence": {
+        "date": "2026-08-07",
+        "minutes": 150,
+        "limitMinutes": 60,
+        "eventLabels": [
+          "Daily Standup",
+          "Metrics Review",
+          "Operations Sync",
+          "Next Week Planning",
+          "Stakeholder Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "9e94a4ddc19eb028",
+      "ruleId": "RL007",
+      "severity": "warning",
+      "title": "Free time is fragmented",
+      "message": "120 free minutes are split into blocks shorter than 90 minutes on 2026-08-04.",
+      "repair": "Batch or move meetings so short gaps combine into one usable focus window.",
+      "eventIds": [
+        "27aeab3e18476cbad51d",
+        "6687c46ae679f3a10ff7",
+        "67fcfcd2ba3eb3404442",
+        "6c17e3b292742412d4e9",
+        "c19eec26acf26f9776c0",
+        "c2e2bfff6e36076fa7fe",
+        "c91bfee617b3aa45cecf"
+      ],
+      "evidence": {
+        "date": "2026-08-04",
+        "minutes": 120,
+        "limitMinutes": 60,
+        "eventLabels": [
+          "Daily Standup",
+          "Design Review",
+          "Project Sync",
+          "Partner Call",
+          "Quarter Planning",
+          "1:1",
+          "Sprint Retro"
+        ]
+      }
+    },
+    {
+      "fingerprint": "ba4f5b5df12fb8a4",
+      "ruleId": "RL007",
+      "severity": "warning",
+      "title": "Free time is fragmented",
+      "message": "150 free minutes are split into blocks shorter than 90 minutes on 2026-08-06.",
+      "repair": "Batch or move meetings so short gaps combine into one usable focus window.",
+      "eventIds": [
+        "087f1cb8ee3a46ae477a",
+        "5d4f588d4e973485a5e3",
+        "6a131824cd670574c50c",
+        "a66274d69396f94efcaa"
+      ],
+      "evidence": {
+        "date": "2026-08-06",
+        "minutes": 150,
+        "limitMinutes": 60,
+        "eventLabels": [
+          "Daily Standup",
+          "Architecture Review",
+          "Launch Sync",
+          "Research Call"
+        ]
+      }
+    },
+    {
+      "fingerprint": "2a24e1bb57c19a55",
+      "ruleId": "RL008",
+      "severity": "warning",
+      "title": "Lunch window is squeezed",
+      "message": "The longest free interval between 11:30 and 14:00 is 20 minutes on 2026-08-04; policy requires 30.",
+      "repair": "Reserve at least 30 uninterrupted minutes in the lunch window. The overlay command can hold an existing free interval; move events first when no interval fits.",
+      "eventIds": [
+        "27aeab3e18476cbad51d",
+        "c19eec26acf26f9776c0",
+        "c2e2bfff6e36076fa7fe"
+      ],
+      "evidence": {
+        "date": "2026-08-04",
+        "minutes": 20,
+        "limitMinutes": 30,
+        "eventLabels": [
+          "Project Sync",
+          "Partner Call",
+          "Quarter Planning"
+        ]
+      }
+    },
+    {
+      "fingerprint": "da15789b113f3cc2",
+      "ruleId": "RL008",
+      "severity": "warning",
+      "title": "Lunch window is squeezed",
+      "message": "The longest free interval between 11:30 and 14:00 is 0 minutes on 2026-08-03; policy requires 30.",
+      "repair": "Reserve at least 30 uninterrupted minutes in the lunch window. The overlay command can hold an existing free interval; move events first when no interval fits.",
+      "eventIds": [
+        "63bbae02cc68d2c67e58",
+        "df5e1eca39f057558618"
+      ],
+      "evidence": {
+        "date": "2026-08-03",
+        "minutes": 0,
+        "limitMinutes": 30,
+        "eventLabels": [
+          "Customer Call",
+          "Hiring Review"
+        ]
+      }
+    },
+    {
+      "fingerprint": "b2306dbdd0d944bc",
+      "ruleId": "RL009",
+      "severity": "warning",
+      "title": "Event falls outside working hours",
+      "message": "Regional Call is not fully contained in the configured work window on 2026-08-05.",
+      "repair": "Move the event into working hours, mark it transparent/ignored when appropriate, or deliberately adjust the workweek policy.",
+      "eventIds": [
+        "a3bdd43995cd98cab07d"
+      ],
+      "evidence": {
+        "date": "2026-08-05",
+        "window": "2026-08-05T16:00:00Z / 2026-08-06T00:30:00Z",
+        "eventLabels": [
+          "Regional Call"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "errors": 3,
+    "warnings": 20,
+    "info": 0,
+    "score": 0
+  },
+  "events": [
+    {
+      "id": "5abd74b8730bd18d805d",
+      "uid": "daily-standup@example.test",
+      "recurrenceId": "2026-08-03T16:00:00Z",
+      "summary": "Daily Standup",
+      "location": "",
+      "start": "2026-08-03T16:00:00.000Z",
+      "end": "2026-08-03T16:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": true,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "26bfc8db50141dce9f06",
+      "uid": "monday-product-review@example.test",
+      "summary": "Product Review",
+      "location": "",
+      "start": "2026-08-03T16:20:00.000Z",
+      "end": "2026-08-03T17:20:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "d242c76b9b585c65fbe5",
+      "uid": "monday-roadmap-sync@example.test",
+      "summary": "Roadmap Sync",
+      "location": "",
+      "start": "2026-08-03T17:25:00.000Z",
+      "end": "2026-08-03T18:25:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "63bbae02cc68d2c67e58",
+      "uid": "monday-customer-call@example.test",
+      "summary": "Customer Call",
+      "location": "",
+      "start": "2026-08-03T18:30:00.000Z",
+      "end": "2026-08-03T20:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "df5e1eca39f057558618",
+      "uid": "monday-hiring-review@example.test",
+      "summary": "Hiring Review",
+      "location": "",
+      "start": "2026-08-03T20:00:00.000Z",
+      "end": "2026-08-03T21:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "cc246f9b69035d7400ff",
+      "uid": "monday-focus@example.test",
+      "summary": "Deep Work",
+      "location": "",
+      "start": "2026-08-03T22:00:00.000Z",
+      "end": "2026-08-03T23:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 0,
+      "source": "before.ics",
+      "kind": "focus"
+    },
+    {
+      "id": "67fcfcd2ba3eb3404442",
+      "uid": "daily-standup@example.test",
+      "recurrenceId": "2026-08-04T16:00:00Z",
+      "summary": "Daily Standup",
+      "location": "",
+      "start": "2026-08-04T16:00:00.000Z",
+      "end": "2026-08-04T16:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": true,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "6687c46ae679f3a10ff7",
+      "uid": "tuesday-design-review@example.test",
+      "summary": "Design Review",
+      "location": "",
+      "start": "2026-08-04T17:00:00.000Z",
+      "end": "2026-08-04T18:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "c2e2bfff6e36076fa7fe",
+      "uid": "tuesday-project-sync@example.test",
+      "summary": "Project Sync",
+      "location": "",
+      "start": "2026-08-04T18:10:00.000Z",
+      "end": "2026-08-04T19:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "c19eec26acf26f9776c0",
+      "uid": "tuesday-partner-call@example.test",
+      "summary": "Partner Call",
+      "location": "",
+      "start": "2026-08-04T19:00:00.000Z",
+      "end": "2026-08-04T20:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "27aeab3e18476cbad51d",
+      "uid": "tuesday-planning@example.test",
+      "summary": "Quarter Planning",
+      "location": "",
+      "start": "2026-08-04T20:20:00.000Z",
+      "end": "2026-08-04T21:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "c91bfee617b3aa45cecf",
+      "uid": "tuesday-1-1@example.test",
+      "summary": "1:1",
+      "location": "",
+      "start": "2026-08-04T22:00:00.000Z",
+      "end": "2026-08-04T23:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "6c17e3b292742412d4e9",
+      "uid": "tuesday-retro@example.test",
+      "summary": "Sprint Retro",
+      "location": "",
+      "start": "2026-08-04T23:30:00.000Z",
+      "end": "2026-08-05T00:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "a3bdd43995cd98cab07d",
+      "uid": "wednesday-early-call@example.test",
+      "summary": "Regional Call",
+      "location": "",
+      "start": "2026-08-05T15:00:00.000Z",
+      "end": "2026-08-05T16:15:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "c6dd9216de04173d85c3",
+      "uid": "daily-standup@example.test",
+      "recurrenceId": "2026-08-05T16:00:00Z",
+      "summary": "Daily Standup",
+      "location": "",
+      "start": "2026-08-05T16:00:00.000Z",
+      "end": "2026-08-05T16:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": true,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "e963a054778394465f7f",
+      "uid": "wednesday-spec-review@example.test",
+      "summary": "Spec Review",
+      "location": "",
+      "start": "2026-08-05T17:30:00.000Z",
+      "end": "2026-08-05T18:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "190a8fe1159631eea5af",
+      "uid": "wednesday-sync@example.test",
+      "summary": "Engineering Sync",
+      "location": "",
+      "start": "2026-08-05T19:00:00.000Z",
+      "end": "2026-08-05T20:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "ab83b3afae6837c80c79",
+      "uid": "wednesday-review@example.test",
+      "summary": "Portfolio Review",
+      "location": "",
+      "start": "2026-08-05T20:30:00.000Z",
+      "end": "2026-08-05T21:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "c138e3cd45a58fba648d",
+      "uid": "wednesday-call@example.test",
+      "summary": "Vendor Call",
+      "location": "",
+      "start": "2026-08-05T22:00:00.000Z",
+      "end": "2026-08-05T23:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "5d4f588d4e973485a5e3",
+      "uid": "daily-standup@example.test",
+      "recurrenceId": "2026-08-06T16:00:00Z",
+      "summary": "Daily Standup",
+      "location": "",
+      "start": "2026-08-06T16:00:00.000Z",
+      "end": "2026-08-06T16:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": true,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "177979828801ec688f63",
+      "uid": "thursday-focus@example.test",
+      "summary": "Focus Block",
+      "location": "",
+      "start": "2026-08-06T16:30:00.000Z",
+      "end": "2026-08-06T18:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 0,
+      "source": "before.ics",
+      "kind": "focus"
+    },
+    {
+      "id": "6a131824cd670574c50c",
+      "uid": "thursday-review@example.test",
+      "summary": "Architecture Review",
+      "location": "",
+      "start": "2026-08-06T17:30:00.000Z",
+      "end": "2026-08-06T18:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "087f1cb8ee3a46ae477a",
+      "uid": "thursday-sync@example.test",
+      "summary": "Launch Sync",
+      "location": "",
+      "start": "2026-08-06T19:00:00.000Z",
+      "end": "2026-08-06T20:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "a66274d69396f94efcaa",
+      "uid": "thursday-call@example.test",
+      "summary": "Research Call",
+      "location": "",
+      "start": "2026-08-06T21:00:00.000Z",
+      "end": "2026-08-06T22:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "d3495dfc8257fff53e79",
+      "uid": "daily-standup@example.test",
+      "recurrenceId": "2026-08-07T16:00:00Z",
+      "summary": "Daily Standup",
+      "location": "",
+      "start": "2026-08-07T16:00:00.000Z",
+      "end": "2026-08-07T16:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": true,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "9495a6639709a9eac1f9",
+      "uid": "friday-review@example.test",
+      "summary": "Metrics Review",
+      "location": "",
+      "start": "2026-08-07T17:00:00.000Z",
+      "end": "2026-08-07T18:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "cb0dd8cd56e8fd962074",
+      "uid": "friday-sync@example.test",
+      "summary": "Operations Sync",
+      "location": "",
+      "start": "2026-08-07T18:30:00.000Z",
+      "end": "2026-08-07T19:30:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "7821b84650d946d98725",
+      "uid": "friday-planning@example.test",
+      "summary": "Next Week Planning",
+      "location": "",
+      "start": "2026-08-07T20:00:00.000Z",
+      "end": "2026-08-07T21:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    },
+    {
+      "id": "0046ab50ed801d359b6d",
+      "uid": "friday-call@example.test",
+      "summary": "Stakeholder Call",
+      "location": "",
+      "start": "2026-08-07T22:00:00.000Z",
+      "end": "2026-08-07T23:00:00.000Z",
+      "allDay": false,
+      "transparent": false,
+      "cancelled": false,
+      "recurring": false,
+      "attendees": 1,
+      "source": "before.ics",
+      "kind": "meeting"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:-//RhythmLint//Overloaded synthetic week//EN
+BEGIN:VEVENT
+UID:daily-standup@example.test
+DTSTART:20260803T160000Z
+DTEND:20260803T163000Z
+RRULE:FREQ=DAILY;COUNT=5
+SUMMARY:Daily Standup
+ATTENDEE:mailto:team@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-product-review@example.test
+DTSTART:20260803T162000Z
+DTEND:20260803T172000Z
+SUMMARY:Product Review
+ATTENDEE:mailto:product@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-roadmap-sync@example.test
+DTSTART:20260803T172500Z
+DTEND:20260803T182500Z
+SUMMARY:Roadmap Sync
+ATTENDEE:mailto:roadmap@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-customer-call@example.test
+DTSTART:20260803T183000Z
+DTEND:20260803T200000Z
+SUMMARY:Customer Call
+ATTENDEE:mailto:customer@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-hiring-review@example.test
+DTSTART:20260803T200000Z
+DTEND:20260803T210000Z
+SUMMARY:Hiring Review
+ATTENDEE:mailto:hiring@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:monday-focus@example.test
+DTSTART:20260803T220000Z
+DTEND:20260803T233000Z
+SUMMARY:Deep Work
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-design-review@example.test
+DTSTART:20260804T170000Z
+DTEND:20260804T180000Z
+SUMMARY:Design Review
+ATTENDEE:mailto:design@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-project-sync@example.test
+DTSTART:20260804T181000Z
+DTEND:20260804T190000Z
+SUMMARY:Project Sync
+ATTENDEE:mailto:project@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-partner-call@example.test
+DTSTART:20260804T190000Z
+DTEND:20260804T200000Z
+SUMMARY:Partner Call
+ATTENDEE:mailto:partner@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-planning@example.test
+DTSTART:20260804T202000Z
+DTEND:20260804T213000Z
+SUMMARY:Quarter Planning
+ATTENDEE:mailto:planning@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-1-1@example.test
+DTSTART:20260804T220000Z
+DTEND:20260804T230000Z
+SUMMARY:1:1
+ATTENDEE:mailto:manager@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:tuesday-retro@example.test
+DTSTART:20260804T233000Z
+DTEND:20260805T003000Z
+SUMMARY:Sprint Retro
+ATTENDEE:mailto:squad@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-early-call@example.test
+DTSTART:20260805T150000Z
+DTEND:20260805T161500Z
+SUMMARY:Regional Call
+ATTENDEE:mailto:regional@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-spec-review@example.test
+DTSTART:20260805T173000Z
+DTEND:20260805T183000Z
+SUMMARY:Spec Review
+ATTENDEE:mailto:spec@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-sync@example.test
+DTSTART:20260805T190000Z
+DTEND:20260805T200000Z
+SUMMARY:Engineering Sync
+ATTENDEE:mailto:engineering@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-review@example.test
+DTSTART:20260805T203000Z
+DTEND:20260805T213000Z
+SUMMARY:Portfolio Review
+ATTENDEE:mailto:portfolio@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-call@example.test
+DTSTART:20260805T220000Z
+DTEND:20260805T230000Z
+SUMMARY:Vendor Call
+ATTENDEE:mailto:vendor@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-focus@example.test
+DTSTART:20260806T163000Z
+DTEND:20260806T180000Z
+SUMMARY:Focus Block
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-review@example.test
+DTSTART:20260806T173000Z
+DTEND:20260806T183000Z
+SUMMARY:Architecture Review
+ATTENDEE:mailto:architecture@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-sync@example.test
+DTSTART:20260806T190000Z
+DTEND:20260806T200000Z
+SUMMARY:Launch Sync
+ATTENDEE:mailto:launch@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-call@example.test
+DTSTART:20260806T210000Z
+DTEND:20260806T220000Z
+SUMMARY:Research Call
+ATTENDEE:mailto:research@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-review@example.test
+DTSTART:20260807T170000Z
+DTEND:20260807T180000Z
+SUMMARY:Metrics Review
+ATTENDEE:mailto:metrics@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-sync@example.test
+DTSTART:20260807T183000Z
+DTEND:20260807T193000Z
+SUMMARY:Operations Sync
+ATTENDEE:mailto:operations@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-planning@example.test
+DTSTART:20260807T200000Z
+DTEND:20260807T210000Z
+SUMMARY:Next Week Planning
+ATTENDEE:mailto:planning@example.test
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-call@example.test
+DTSTART:20260807T220000Z
+DTEND:20260807T230000Z
+SUMMARY:Stakeholder Call
+ATTENDEE:mailto:stakeholder@example.test
+END:VEVENT
+END:VCALENDAR

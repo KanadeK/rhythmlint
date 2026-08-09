@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a reproducible parser, rule, CLI, or report defect with synthetic data.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Never attach a real calendar export. Replace names, addresses, URLs, locations, and UIDs.
+  - type: input
+    id: version
+    attributes:
+      label: RhythmLint and Node versions
+      placeholder: RhythmLint 0.1.0; Node 24.18.0
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include the command, exit code, synthetic ICS/config, actual result, and expected result.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system and any timezone-specific details.
+    validations:
+      required: true

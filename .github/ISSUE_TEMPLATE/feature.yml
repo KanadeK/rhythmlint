@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose a bounded calendar format, rule, reporter, or integration improvement.
+title: "feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and current workaround
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Proposed observable behavior
+      description: State inputs, outputs, exit semantics, privacy impact, and a synthetic acceptance case.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: The request does not require uploading private calendar data.
+          required: true
